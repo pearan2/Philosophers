@@ -43,7 +43,7 @@ int	main()
 	int a = 1;
 	thr_id[0] = pthread_create(&p_thread[0], NULL, do_loop, (void *)&a);
 	sleep(1);
-	thr_id[1] = pthread_create(&p_thread[1], NULL, do_loop2, (void *)&a);
+	thr_id[1] = pthread_create(&p_thread[1], NULL, do_loop, (void *)&a);
 
 	while (1)
 	{
