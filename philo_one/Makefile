@@ -6,7 +6,7 @@
 #    By: honlee <honlee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 05:28:05 by honlee            #+#    #+#              #
-#    Updated: 2021/03/30 06:20:20 by honlee           ###   ########.fr        #
+#    Updated: 2021/03/30 20:19:28 by honlee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,21 +21,23 @@ INCDIR		=		./share/
 
 NAME		=		philo_one
 
-CC			=		gcc
+CC			=		clang
 
-#CF			=		-Wall -Wextra -Werror
-CF			=		-g
-.c.o       	:
-					${CC} ${CF} -c $< -o ${<:.c=.o} -I${INCDIR}
+CF			=		-Wall -Wextra -Werror -I ${INCDIR} ${SRCS} -lpthread
+DCF			=		-g -I ${INCDIR} ${SRCS} -lpthread
 
-${NAME}     :       ${OBJS}
-					${CC} ${CF} ${OBJS} -o ${NAME}
+${NAME}     :       
+					${CC} ${CF} -o ${NAME}
 
-fclean		:		clean
+test		:		fclean
+					${CC} ${DCF} -o ${NAME}
+					lldb philo_one -- 2 310 100 100
+
+fclean		:		
 					rm -f ${NAME}
 
 clean       :               
-					rm -f ${OBJS}
+					rm -f ${NAME}
 
 re			:		fclean all
 
