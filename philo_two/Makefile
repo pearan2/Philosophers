@@ -6,7 +6,7 @@
 #    By: honlee <honlee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 05:28:05 by honlee            #+#    #+#              #
-#    Updated: 2021/04/01 16:16:00 by honlee           ###   ########.fr        #
+#    Updated: 2021/04/01 16:16:10 by honlee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS        =       ${SRCS:.c=.o}
 
 INCDIR		=		./share/
 
-NAME		=		philo_one
+NAME		=		philo_two
 
 CC			=		clang
 
