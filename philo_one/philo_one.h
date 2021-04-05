@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 12:12:57 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/02 14:41:21 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/05 19:41:29 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,35 @@
 
 # include "../share/share.h"
 
-typedef struct s_philo_one
+typedef struct s_base
 {
-	int							id;
 	unsigned long long			create_time;
-	unsigned long long			last_eat_time;
 	unsigned long long			time_to_die;
 	unsigned long long			time_to_eat;
 	unsigned long long			time_to_sleep;
 	int							philo_max;
-	int							is_limit;
-	int							num_of_eat;
+	int							limit_eat;
+	int							is_end;
 	pthread_mutex_t				*forks;
-}								t_philo_one;
+	pthread_mutex_t				printer;
+}								t_base;
 
-int			ft_detach_all(pthread_t *threads, int nop, unsigned long long nt);
-int			ft_detach_all2(pthread_t *threads, int nop,
-				int pn, unsigned long long nt);
+typedef struct s_philo
+{
+	int							id;
+	int							num_of_eat;
+	unsigned long long			last_eat_time;
+	int							lf_idx;
+	int							rf_idx;
+	t_base						*base;
+}								t_philo;
+
+int			init_base(t_base *base, int ac, char **av);
+int			init_philos(t_philo **philos, t_base *base);
+void		philo_eat(t_philo *philo);
+void		philo_sleep(t_philo *philo);
+void		philo_think(t_philo *philo);
+int			die_return(t_base *base, int id, unsigned long long nt);
+int			full_return(t_base *base);
 
 #endif

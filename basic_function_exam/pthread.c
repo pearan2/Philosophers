@@ -1,10 +1,15 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 void	*thread(void *arg)
 {
-	printf("%s\n", (char *)arg);
+	while(1)
+	{
+		printf("%s\n", (char *)arg);
+	}
+	exit(0);
 	return (NULL);
 }
 
@@ -12,8 +17,9 @@ int		main()
 {
 	pthread_t tid;
 	pthread_create(&tid, NULL, thread, "Hello!!"); // 이 시점에서 메인스레드와 피어스레드가 돌고있다.
-	pthread_join(tid,NULL);  //메인스레드가 피어스레드의 종료를 기다린다.
-	pthread_detach(tid); // thread 를 커널에서 분리시킴. 분리된 스레드는 수행을 종료시키고 자원을 회수한다.
+	sleep(1);
+	printf("goto detach!\n");
+	printf("%d\n",pthread_detach(tid)); // thread 를 커널에서 분리시킴. 분리된 스레드는 수행을 종료시키고 자원을 회수한다.
 	exit(0);
 }
 

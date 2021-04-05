@@ -1,0 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   status.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/05 17:57:06 by honlee            #+#    #+#             */
+/*   Updated: 2021/04/05 19:44:28 by honlee           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo_one.h"
+
+void	philo_eat(t_philo *philo)
+{
+	pthread_mutex_lock(&(philo->base->forks[philo->lf_idx]));
+	pthread_mutex_lock(&(philo->base->forks[philo->rf_idx]));
+	pthread_mutex_lock(&(philo->base->printer));
+	printf("%8llums %d has taken a fork\n",
+		ft_get_ms() - philo->base->create_time, philo->id);
+	philo->num_of_eat++;
+	printf("%8llums %d is eating : %d\n",
+		ft_get_ms() - philo->base->create_time, philo->id, philo->num_of_eat);
+	pthread_mutex_unlock(&(philo->base->printer));
+	philo->last_eat_time = ft_get_ms();
+	ft_sleep(philo->base->time_to_eat);
+	pthread_mutex_unlock(&(philo->base->forks[philo->lf_idx]));
+	pthread_mutex_unlock(&(philo->base->forks[philo->rf_idx]));
+}
+
+void	philo_sleep(t_philo *philo)
+{
+	pthread_mutex_lock(&(philo->base->printer));
+	printf("%8llums %d is sleeping\n",
+		ft_get_ms() - philo->base->create_time, philo->id);
+	pthread_mutex_unlock(&(philo->base->printer));
+	ft_sleep(philo->base->time_to_sleep);
+}
+
+void	philo_think(t_philo *philo)
+{
+	pthread_mutex_lock(&(philo->base->printer));
+	printf("%8llums %d is thinking\n",
+		ft_get_ms() - philo->base->create_time, philo->id);
+	pthread_mutex_unlock(&(philo->base->printer));
+}
