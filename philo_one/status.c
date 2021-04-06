@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 17:57:06 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 19:44:28 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/06 19:50:07 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 void	philo_eat(t_philo *philo)
 {
 	pthread_mutex_lock(&(philo->base->forks[philo->lf_idx]));
+	pthread_mutex_lock(&(philo->base->printer));
+	printf("%8llums %d has taken a left fork\n",
+		ft_get_ms() - philo->base->create_time, philo->id);
+	pthread_mutex_unlock(&(philo->base->printer));
 	pthread_mutex_lock(&(philo->base->forks[philo->rf_idx]));
 	pthread_mutex_lock(&(philo->base->printer));
-	printf("%8llums %d has taken a fork\n",
+	printf("%8llums %d has taken a right fork\n",
 		ft_get_ms() - philo->base->create_time, philo->id);
 	philo->num_of_eat++;
 	printf("%8llums %d is eating : %d\n",

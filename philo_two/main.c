@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 18:15:36 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 22:11:43 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/06 20:38:18 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	monitor_loop(t_philo *philos, t_base *base, pthread_t *tids)
 			if (base->limit_eat != -1
 				&& philos[idx].num_of_eat >= base->limit_eat)
 				sum++;
-			if (sum == base->philo_max - 1)
+			if (sum == base->philo_max)
 				return (full_return(base, tids));
 		}
 		sem_post(base->printer);

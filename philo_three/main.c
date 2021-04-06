@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 18:15:36 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 22:42:26 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/06 20:38:51 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ int	start_fork(t_philo *philos, t_base *base)
 	idx = -1;
 	while (++idx < base->philo_max)
 		sem_wait(base->is_full);
-	printf("All philosophers eat\n");
-	base->is_end = 1;
 	sem_wait(base->printer);
+	base->is_end = 1;
+	printf("All philosophers eat\n");
 	idx = -1;
 	while (++idx < base->philo_max)
 		kill(base->pids[idx], SIGKILL);

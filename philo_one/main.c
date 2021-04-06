@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 05:19:54 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 19:43:58 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/06 20:50:08 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	monitor_loop(t_philo *philos, t_base *base)
 			if (base->limit_eat != -1
 				&& philos[idx].num_of_eat >= base->limit_eat)
 				sum++;
-			if (sum == base->philo_max - 1)
+			if (sum == base->philo_max)
 				return (full_return(base));
 		}
 		pthread_mutex_unlock(&(base->printer));
@@ -74,8 +74,6 @@ int	main(int ac, char **av)
 		return (1);
 	idx = -1;
 	while (++idx < base.philo_max)
-	{
 		pthread_create(&(tids[idx]), NULL, philo_loop, (void *)&(philos[idx]));
-	}
 	return (monitor_loop(philos, &base));
 }
