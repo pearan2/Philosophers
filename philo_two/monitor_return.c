@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 19:38:57 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 21:25:00 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 00:25:18 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	full_return(t_base *base, pthread_t *tids)
 	int		idx;
 
 	base->is_end = 1;
-	printf("All philosophers is full\n");
+	printf("All philosophers are full\n");
 	idx = -1;
 	while (++idx < base->philo_max)
 		pthread_detach(tids[idx]);

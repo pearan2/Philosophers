@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 19:38:57 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 20:40:22 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 00:24:56 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	die_return(t_base *base, int id, unsigned long long nt)
 int	full_return(t_base *base)
 {
 	base->is_end = 1;
-	printf("All philosophers is full\n");
+	printf("All philosophers are full\n");
 	ft_sleep(10);
 	return (0);
 }

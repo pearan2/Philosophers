@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 18:15:36 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/07 00:16:16 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 00:34:20 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,10 @@ int					start_fork(t_philo *philos, t_base *base)
 	}
 	pthread_create(&tid, NULL, monitor_die_all, base);
 	idx = -1;
-	while (++idx < base->philo_max)
+	while (++idx <= base->philo_max)
 		sem_wait(base->is_full);
 	sem_wait(base->printer);
-	base->is_end = 1;
-	printf("All philosophers eat\n");
+	printf("All philosophers are full\n");
 	idx = -1;
 	while (++idx < base->philo_max)
 		kill(base->pids[idx], SIGKILL);
