@@ -6,13 +6,13 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 17:25:38 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 19:43:31 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 00:12:01 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-int	init_base(t_base *base, int ac, char **av)
+int					init_base(t_base *base, int ac, char **av)
 {
 	int					idx;
 	pthread_mutex_t		*forks;
@@ -39,7 +39,16 @@ int	init_base(t_base *base, int ac, char **av)
 	return (0);
 }
 
-int	init_philos(t_philo **philos, t_base *base)
+void				int_swap(int *a, int *b)
+{
+	int		temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+int					init_philos(t_philo **philos, t_base *base)
 {
 	int		idx;
 
@@ -55,6 +64,8 @@ int	init_philos(t_philo **philos, t_base *base)
 		(*philos)[idx].num_of_eat = 0;
 		if ((*philos)[idx].lf_idx < 0)
 			(*philos)[idx].lf_idx = base->philo_max - 1;
+		if (idx % 2 == 0)
+			int_swap(&((*philos)[idx].lf_idx), &((*philos)[idx].rf_idx));
 		(*philos)[idx].base = base;
 	}
 	return (0);

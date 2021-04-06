@@ -6,13 +6,13 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 18:15:36 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/06 20:38:51 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 00:16:16 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_three.h"
 
-void	*monitor_die(void *data)
+void				*monitor_die(void *data)
 {
 	t_philo				*philo;
 	unsigned long long	nt;
@@ -34,7 +34,7 @@ void	*monitor_die(void *data)
 	}
 }
 
-void	philo_loop(t_philo *philo)
+void				philo_loop(t_philo *philo)
 {
 	pthread_t	tid;
 
@@ -54,7 +54,7 @@ void	philo_loop(t_philo *philo)
 	exit(0);
 }
 
-void	*monitor_die_all(void *data)
+void				*monitor_die_all(void *data)
 {
 	t_base				*base;
 	int					idx;
@@ -68,7 +68,7 @@ void	*monitor_die_all(void *data)
 	return (NULL);
 }
 
-int	start_fork(t_philo *philos, t_base *base)
+int					start_fork(t_philo *philos, t_base *base)
 {
 	int				idx;
 	pthread_t		tid;
@@ -93,7 +93,7 @@ int	start_fork(t_philo *philos, t_base *base)
 	return (0);
 }
 
-int	main(int ac, char **av)
+int					main(int ac, char **av)
 {
 	t_base			*base;
 	t_philo			*philos;

@@ -6,13 +6,13 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 14:14:47 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 11:38:44 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 00:17:01 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "share.h"
 
-unsigned long long	ft_get_ms(void)
+unsigned long long			ft_get_ms(void)
 {
 	struct timeval		tv;
 	unsigned long long	ret;
@@ -23,7 +23,7 @@ unsigned long long	ft_get_ms(void)
 	return (ret);
 }
 
-void	ft_sleep(unsigned long long s_time)
+void						ft_sleep(unsigned long long s_time)
 {
 	unsigned long long	start;
 

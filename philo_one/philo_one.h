@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 12:12:57 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 19:41:29 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 00:11:17 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../share/share.h"
 
-typedef struct s_base
+typedef struct					s_base
 {
 	unsigned long long			create_time;
 	unsigned long long			time_to_die;
@@ -28,7 +28,7 @@ typedef struct s_base
 	pthread_mutex_t				printer;
 }								t_base;
 
-typedef struct s_philo
+typedef struct					s_philo
 {
 	int							id;
 	int							num_of_eat;
@@ -38,12 +38,13 @@ typedef struct s_philo
 	t_base						*base;
 }								t_philo;
 
-int			init_base(t_base *base, int ac, char **av);
-int			init_philos(t_philo **philos, t_base *base);
-void		philo_eat(t_philo *philo);
-void		philo_sleep(t_philo *philo);
-void		philo_think(t_philo *philo);
-int			die_return(t_base *base, int id, unsigned long long nt);
-int			full_return(t_base *base);
+int								init_base(t_base *base, int ac, char **av);
+int								init_philos(t_philo **philos, t_base *base);
+void							philo_eat(t_philo *philo);
+void							philo_sleep(t_philo *philo);
+void							philo_think(t_philo *philo);
+int								die_return(t_base *base, int id,
+									unsigned long long nt);
+int								full_return(t_base *base);
 
 #endif

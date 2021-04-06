@@ -6,13 +6,13 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 05:19:54 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/06 20:50:08 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 00:11:35 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-void	*philo_loop(void *data)
+void			*philo_loop(void *data)
 {
 	t_philo		*philo;
 
@@ -32,7 +32,7 @@ void	*philo_loop(void *data)
 	return (NULL);
 }
 
-int	monitor_loop(t_philo *philos, t_base *base)
+int				monitor_loop(t_philo *philos, t_base *base)
 {
 	int						idx;
 	unsigned long long		nt;
@@ -58,7 +58,7 @@ int	monitor_loop(t_philo *philos, t_base *base)
 	}
 }
 
-int	main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	t_base			base;
 	t_philo			*philos;

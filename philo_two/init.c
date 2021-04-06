@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 17:25:38 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 21:24:42 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 00:14:49 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ int	init_base(t_base *base, int ac, char **av)
 	if (ac == 6)
 		base->limit_eat = ft_atoi(av[5]);
 	idx = -1;
-	if (ft_get_sem(&base->forks, SEM_ID_FORK, base->philo_max / 2) != 0)
+	if (ft_get_sem(&base->forks, SEM_ID_FORK, base->philo_max) != 0)
 		return (1);
 	if (ft_get_sem(&base->printer, SEM_ID_PRINT, 1) != 0)
+		return (1);
+	if (ft_get_sem(&base->lid, SEM_ID_LID, 1) != 0)
 		return (1);
 	return (0);
 }

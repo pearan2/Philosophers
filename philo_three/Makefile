@@ -6,7 +6,7 @@
 #    By: honlee <honlee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 05:28:05 by honlee            #+#    #+#              #
-#    Updated: 2021/04/05 22:17:12 by honlee           ###   ########.fr        #
+#    Updated: 2021/04/06 22:51:25 by honlee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,8 @@ test		:		fclean
 fclean		:		
 					rm -f ${NAME}
 
-clean       :               
-					rm -f ${NAME}
-
 re			:		fclean all
 
 all         :      	${NAME}
+
+.PHONY		:		fclean re all test ${NAME}

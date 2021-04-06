@@ -6,13 +6,13 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 05:36:30 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 11:39:28 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 00:16:51 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "share.h"
 
-int	ft_salloc(void**target, int type_size, int alloc_size)
+int	ft_salloc(void **target, int type_size, int alloc_size)
 {
 	if (type_size < 0 || alloc_size < 0)
 		return (1);

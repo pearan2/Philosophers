@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 10:29:16 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/05 22:17:56 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/06 23:47:15 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,11 @@ int	init_base(t_base *base, int ac, char **av)
 	idx = -1;
 	if (ft_salloc((void **)&base->pids, sizeof(int), base->philo_max) != 0)
 		return (1);
-	if (ft_get_sem(&base->forks, SEM_FORK_ID, base->philo_max / 2) != 0)
-		return (1);
-	if (ft_get_sem(&base->printer, SEM_PRINTER_ID, 1) != 0)
-		return (1);
-	if (ft_get_sem(&base->is_die, SEM_DIE_ID, 1) != 0)
-		return (1);
-	if (ft_get_sem(&base->is_full, SEM_FULL_ID, base->philo_max) != 0)
+	if (ft_get_sem(&base->forks, SEM_FORK_ID, base->philo_max) != 0
+		|| ft_get_sem(&base->printer, SEM_PRINTER_ID, 1) != 0
+		|| ft_get_sem(&base->is_die, SEM_DIE_ID, 1) != 0
+		|| ft_get_sem(&base->is_full, SEM_FULL_ID, base->philo_max) != 0
+		|| ft_get_sem(&base->lid, SEM_LID_ID, 1) != 0)
 		return (1);
 	while (++idx < base->philo_max)
 		sem_wait(base->is_full);
