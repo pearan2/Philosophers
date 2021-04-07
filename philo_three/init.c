@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
+/*   By: honlee <honlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 10:29:16 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/06 23:47:15 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 11:34:10 by honlee           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	init_philos(t_philo **philos, t_base *base)
 		(*philos)[idx].last_eat_time = base->create_time;
 		(*philos)[idx].num_of_eat = 0;
 		(*philos)[idx].base = base;
+		(*philos)[idx].full = 0;		
 	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
+/*   By: honlee <honlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 18:15:36 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/07 00:34:20 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 11:33:21 by honlee           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int					start_fork(t_philo *philos, t_base *base)
 	}
 	pthread_create(&tid, NULL, monitor_die_all, base);
 	idx = -1;
-	while (++idx <= base->philo_max)
+	while (++idx < base->philo_max)
 		sem_wait(base->is_full);
 	sem_wait(base->printer);
 	printf("All philosophers are full\n");

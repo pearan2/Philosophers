@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_three.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
+/*   By: honlee <honlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 14:52:58 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/07 00:15:28 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/07 11:33:54 by honlee           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct					s_philo
 	int							id;
 	int							num_of_eat;
 	unsigned long long			last_eat_time;
+	int							full;
 	t_base						*base;
 }								t_philo;
 
