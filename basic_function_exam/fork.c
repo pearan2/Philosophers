@@ -4,18 +4,15 @@
 int	main()
 {
 	int pid;
+	int a = 5;
 
 	pid = fork();
 	if (pid == 0)
 	{
-		while (1)
-		{
-			printf("im child!!\n");
-			sleep(1);
-		}
+		a += 5;
+		printf("hi im child!! value >> %d\n", a);
+		return (0);
 	}
-	else{
-		printf("im parent!!\n");
-		sleep(1);
-	}
+	sleep(1);
+	printf("hi im child!! value >> %d\n", a);
 }
